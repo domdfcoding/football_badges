@@ -44,14 +44,14 @@ modname = "football_badges"
 pypi_name = "football_badges"
 import_name = "football_badges"
 __license__ = "Apache Software License"
-short_desc = 'Creates a github-style badge showing the score of a football match.'
+short_desc = 'Create a github-style badge showing the score of a football match.'
 __author__ = author = 'Dominic Davis-Foster'
 author_email = 'dominic@davis-foster.co.uk'
 github_username = "domdfcoding"
 web = github_url = "https://github.com/domdfcoding/football_badges"
 repo_root = pathlib.Path(__file__).parent
 install_requires = (repo_root / "requirements.txt").read_text(encoding="utf-8").split('\n')
-extras_require = {'all': []}
+extras_require = {'pil-measurement': ['Pillow>=5,<6'], 'all': ['Pillow>=5,<6']}
 
 
 

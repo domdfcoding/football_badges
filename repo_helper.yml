@@ -7,12 +7,33 @@ email: 'dominic@davis-foster.co.uk'
 username: 'domdfcoding'
 version: '0.0.0'
 license: 'Apache'
-short_desc: 'Creates a github-style badge showing the score of a football match.'
+short_desc: 'Create a github-style badge showing the score of a football match.'
 
 enable_conda: False
+enable_tests: False
 
 python_versions:
   - 3.6
   - 3.7
   - 3.8
   - 3.9-dev
+
+classifiers:
+  - 'Intended Audience :: Developers'
+  - 'Development Status :: 4 - Beta'
+
+keywords:
+  - github
+  - gh-badges
+  - badge
+  - shield
+  - football
+  - sport
+
+manifest_additional:
+  - include football_badges *.svg
+  - include football_badges *.json
+
+extras_require:
+  pil-measurement:
+    - Pillow>=5,<6

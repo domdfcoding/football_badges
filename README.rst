@@ -4,10 +4,11 @@ football_badges
 
 .. start short_desc
 
-**Creates a github-style badge showing the score of a football match.**
+**Create a github-style badge showing the score of a football match.**
 
 .. end short_desc
 
+The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 
 .. start shields
 
@@ -18,7 +19,7 @@ football_badges
 	* - Docs
 	  - |docs| |docs_check|
 	* - Tests
-	  - |travis| |actions_windows| |actions_macos| |coveralls| |codefactor|
+	  - |travis| |actions_windows| |actions_macos| |codefactor|
 	* - PyPI
 	  - |pypi-version| |supported-versions| |supported-implementations| |wheel|
 	* - Activity
@@ -49,10 +50,6 @@ football_badges
 .. |requires| image:: https://requires.io/github/domdfcoding/football_badges/requirements.svg?branch=master
 	:target: https://requires.io/github/domdfcoding/football_badges/requirements/?branch=master
 	:alt: Requirements Status
-
-.. |coveralls| image:: https://img.shields.io/coveralls/github/domdfcoding/football_badges/master?logo=coveralls
-	:target: https://coveralls.io/github/domdfcoding/football_badges?branch=master
-	:alt: Coverage
 
 .. |codefactor| image:: https://img.shields.io/codefactor/grade/github/domdfcoding/football_badges?logo=codefactor
 	:target: https://www.codefactor.io/repository/github/domdfcoding/football_badges
@@ -97,8 +94,6 @@ football_badges
 	:alt: pre-commit
 
 .. end shields
-
-|
 
 Installation
 --------------

@@ -2,7 +2,6 @@
 football_badges
 ================
 
-
 .. automodule:: football_badges
 	:autosummary:
 	:members:
