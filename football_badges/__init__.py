@@ -24,15 +24,13 @@ Creates a github-style badge showing the score of a football match.
 #  limitations under the License.
 #
 
+# stdlib
 from typing import Optional, Union
 from xml.dom import minidom
 
+# 3rd party
 import jinja2
-
-from pybadges import text_measurer
-from pybadges import precalculated_text_measurer
-from pybadges import _NAME_TO_COLOR
-
+from pybadges import _NAME_TO_COLOR, precalculated_text_measurer, text_measurer
 
 __author__ = "Dominic Davis-Foster"
 __copyright__ = "2020 Dominic Davis-Foster"
@@ -41,13 +39,12 @@ __license__ = "Apache Software License v2.0"
 __version__ = "0.0.0"
 __email__ = "dominic@davis-foster.co.uk"
 
-
 _JINJA2_ENVIRONMENT = jinja2.Environment(
 		trim_blocks=True,
 		lstrip_blocks=True,
 		loader=jinja2.PackageLoader('football_badges', '.'),
-		autoescape=jinja2.select_autoescape(['svg']))
-
+		autoescape=jinja2.select_autoescape(['svg'])
+		)
 
 
 def _remove_blanks(node):
@@ -99,8 +96,7 @@ def football_badge(
 
 	"""
 	if measurer is None:
-		measurer = (
-				precalculated_text_measurer.PrecalculatedTextMeasurer.default())
+		measurer = (precalculated_text_measurer.PrecalculatedTextMeasurer.default())
 
 	# template = _JINJA2_ENVIRONMENT.get_template('score_only_template.svg')
 	template = _JINJA2_ENVIRONMENT.get_template('score_time_template.svg')

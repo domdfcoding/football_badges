@@ -31,77 +31,52 @@ For more information, run:
 #  limitations under the License.
 #
 
-
+# stdlib
 import argparse
 import sys
 import tempfile
 import webbrowser
 
+# 3rd party
 from domdf_python_tools import stderr_writer
 from pybadges.version import __version__
 
+# this package
 from football_badges import football_badge
 
 
-
 def main():
-	parser = argparse.ArgumentParser(
-			'pybadges',
-			description='generate a football score badge.')
+	parser = argparse.ArgumentParser('pybadges', description='generate a football score badge.')
 
-	parser.add_argument(
-			'home_name',
-			help='The 2- or 3-letter code representing the home team')
-	parser.add_argument(
-			'away_name',
-			help='The 2- or 3-letter code representing the away team')
-	parser.add_argument(
-			'--home-score',
-			type=int,
-			help='the score of the home team.')
-	parser.add_argument(
-			'--away-score',
-			type=int,
-			help='the score of the away team.')
-	parser.add_argument(
-			'--home-color',
-			default='#555',
-			help='the background color for the home team.')
-	parser.add_argument(
-			'--away-color',
-			default='#007ec6',
-			help='the background color for the away team.')
-	parser.add_argument(
-			'--elapsed-time',
-			type=str,
-			help="the elapsed time in 'MM:SS' format.")
-	parser.add_argument('--browser',
-						action='store_true',
-						default=False,
-						help='display the badge in a browser tab')
+	parser.add_argument('home_name', help='The 2- or 3-letter code representing the home team')
+	parser.add_argument('away_name', help='The 2- or 3-letter code representing the away team')
+	parser.add_argument('--home-score', type=int, help='the score of the home team.')
+	parser.add_argument('--away-score', type=int, help='the score of the away team.')
+	parser.add_argument('--home-color', default='#555', help='the background color for the home team.')
+	parser.add_argument('--away-color', default='#007ec6', help='the background color for the away team.')
+	parser.add_argument('--elapsed-time', type=str, help="the elapsed time in 'MM:SS' format.")
+	parser.add_argument('--browser', action='store_true', default=False, help='display the badge in a browser tab')
 	parser.add_argument(
 			'--use-pil-text-measurer',
 			action='store_true',
 			default=False,
 			help='use the PilMeasurer to measure the length of text (kerning may '
-				 'be more precise for non-Western languages. ' +
-				 '--deja-vu-sans-path must also be set.')
+			'be more precise for non-Western languages. ' + '--deja-vu-sans-path must also be set.'
+			)
 	parser.add_argument(
 			'--deja-vu-sans-path',
 			default=None,
-			help='the path to the ttf font file containing DejaVu Sans. If not ' +
-				 'present on your system, you can download it from ' +
-				 'https://www.fontsquirrel.com/fonts/dejavu-sans')
+			help='the path to the ttf font file containing DejaVu Sans. If not '
+			+ 'present on your system, you can download it from '
+			+ 'https://www.fontsquirrel.com/fonts/dejavu-sans'
+			)
 	parser.add_argument(
 			'--title',
 			default=None,
 			help='the title to associate with the badge. See '
-				 'https://developer.mozilla.org/en-US/docs/Web/SVG/Element/title')
-	parser.add_argument(
-			'-v',
-			'--version',
-			action='version',
-			version='%(prog)s {version}'.format(version=__version__))
+			'https://developer.mozilla.org/en-US/docs/Web/SVG/Element/title'
+			)
+	parser.add_argument('-v', '--version', action='version', version=f'%(prog)s {__version__}')
 
 	args = parser.parse_args()
 
@@ -112,6 +87,7 @@ def main():
 			stderr_writer('argument --use-pil-text-measurer: must also set --deja-vu-sans-path')
 			sys.exit(1)
 		else:
+			# 3rd party
 			from pybadges import pil_text_measurer
 			measurer = pil_text_measurer.PilMeasurer(args.deja_vu_sans_path)
 
