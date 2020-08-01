@@ -31,8 +31,8 @@ keywords:
   - sport
 
 manifest_additional:
-  - include football_badges *.svg
-  - include football_badges *.json
+  - include football_badges/*.svg
+  - include football_badges/*.json
 
 extras_require:
   pil-measurement:

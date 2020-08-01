@@ -1,5 +1,5 @@
 bs4
+domdf_python_tools
 jinja2
 lxml
 pybadges
-domdf_python_tools
