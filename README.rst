@@ -29,7 +29,7 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 
 .. |docs| image:: https://img.shields.io/readthedocs/football_badges/latest?logo=read-the-docs
 	:target: https://football_badges.readthedocs.io/en/latest/?badge=latest
-	:alt: Documentation Status
+	:alt: Documentation Build Status
 
 .. |docs_check| image:: https://github.com/domdfcoding/football_badges/workflows/Docs%20Check/badge.svg
 	:target: https://github.com/domdfcoding/football_badges/actions?query=workflow%3A%22Docs+Check%22

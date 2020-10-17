@@ -1,7 +1,7 @@
 include __pkginfo__.py
 include LICENSE
 include requirements.txt
-recursive-exclude **/__pycache__ *
+prune **/__pycache__
 include football_badges/*.svg
 include football_badges/*.json
 recursive-include football_badges *.pyi
