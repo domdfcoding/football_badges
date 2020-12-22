@@ -3,7 +3,7 @@ Downloading source code
 =========================
 
 The ``football_badges`` source code is available on GitHub,
-and can be accessed from the following URL: https://github.com/domdfcoding/football_badges"
+and can be accessed from the following URL: https://github.com/domdfcoding/football_badges
 
 If you have ``git`` installed, you can clone the repository with the following command:
 

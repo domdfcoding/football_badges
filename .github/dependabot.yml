@@ -1,9 +1,10 @@
 # This file is managed by 'repo_helper'. Don't edit it directly.
 ---
-version: 1
-update_configs:
-- package_manager: python
+version: 2
+updates:
+- package-ecosystem: pip
   directory: /
-  update_schedule: weekly
-  default_reviewers:
+  schedule:
+    interval: weekly
+  reviewers:
   - domdfcoding

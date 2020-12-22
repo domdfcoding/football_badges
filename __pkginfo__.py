@@ -17,22 +17,9 @@ import pathlib
 __all__ = [
 		"__copyright__",
 		"__version__",
-		"modname",
-		"pypi_name",
-		"__license__",
-		"__author__",
-		"short_desc",
-		"author",
-		"author_email",
-		"github_username",
-		"web",
-		"github_url",
 		"repo_root",
 		"install_requires",
 		"extras_require",
-		"project_urls",
-
-		"import_name",
 		]
 
 __copyright__ = """
@@ -40,23 +27,7 @@ __copyright__ = """
 """
 
 __version__ = "0.0.0"
-modname = "football_badges"
-pypi_name = "football_badges"
-import_name = "football_badges"
-__license__ = "Apache Software License"
-short_desc = 'Create a github-style badge showing the score of a football match.'
-__author__ = author = 'Dominic Davis-Foster'
-author_email = 'dominic@davis-foster.co.uk'
-github_username = "domdfcoding"
-web = github_url = "https://github.com/domdfcoding/football_badges"
+
 repo_root = pathlib.Path(__file__).parent
 install_requires = (repo_root / "requirements.txt").read_text(encoding="utf-8").split('\n')
-extras_require = {'pil-measurement': ['Pillow>=5,<6'], 'all': ['Pillow>=5,<6']}
-
-
-
-project_urls = {
-		"Documentation": "https://football_badges.readthedocs.io",
-		"Issue Tracker": f"{github_url}/issues",
-		"Source Code": github_url,
-		}
+extras_require = {"pil-measurement": ["Pillow>=5,<6"], "all": ["Pillow>=5,<6"]}
