@@ -1,0 +1,67 @@
+{% set left_text_width = 25 %}
+{% set right_text_width = 25 %}
+{% set left_width = left_text_width + 10 %}
+{% set right_width = right_text_width + 10 %}
+{% set score_width = score_text_width + 7 %}
+{% set time_width = score_width + 7 if show_time else 0%}
+{% set minutes, seconds = time.split(":") %}
+{% set right_team_offset = left_width + score_width %}
+{% set time_offset = right_team_offset + right_width %}
+{% set extra_time_offset = time_offset + time_width -%}
+{% set total_width = extra_time_offset + extra_time_width -%}
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{{ total_width }}" height="20">
+
+  {% if title %}
+    <title>{{ title }}</title>
+  {% endif %}
+
+  <linearGradient id="smooth" x2="0" y2="100%">
+    <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+    <stop offset="1" stop-opacity=".1"/>
+  </linearGradient>
+
+  <clipPath id="round">
+    <rect width="{{ total_width }}" height="20" rx="3" fill="#fff"/>
+  </clipPath>
+
+  <g clip-path="url(#round)">
+    <rect width="{{ left_width }}" height="20" fill="{{ left_color }}"/>
+    <rect x="{{ left_width }}" width="{{ score_width }}" height="20" fill="black"/>
+    <rect x="{{ right_team_offset }}" width="{{ right_width }}" height="20" fill="{{ right_color }}"/>
+    <rect width="{{ time_offset }}" height="20" fill="url(#smooth)"/>
+    {% if show_time -%}
+    <rect x="{{ time_offset }}" width="{{ time_width }}" height="20" fill="black"/>
+    {% endif -%}
+    {% if show_extra_time -%}
+    <rect x="{{ extra_time_offset }}" width="{{ extra_time_width }}" height="20" fill="#db1818"/>
+    {% endif -%}
+  </g>
+
+  <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="110">
+    <text x="{{ (left_width / 2) * 10 }}" y="140" transform="scale(0.1)" letter-spacing="10" text-anchor="middle">
+      {{ left_text }}
+    </text>
+    <text x="{{ (left_width + (score_width / 2)) * 10 }}" y="140" transform="scale(0.1)" textLength="{{ (score_width - 10) * 10 }}" text-anchor="middle">
+      {{ score }}
+    </text>
+    <text x="{{ (right_team_offset + (right_width / 2)) * 10 }}" y="140" transform="scale(0.1)" letter-spacing="10" text-anchor="middle">
+      {{ right_text}}
+    </text>
+    {% if show_time %}
+    <text x="{{ ((time_offset + (time_width / 2)) * 10) - 30 }}" y="140" transform="scale(0.1)" text-anchor="end">
+      {{ minutes }}
+    </text>
+    <text x="{{ (time_offset + (time_width / 2)) * 10 }}" y="140" transform="scale(0.1)" >:</text>
+    <text x="{{ ((time_offset + (time_width / 2)) * 10) + 170 }}" y="140" transform="scale(0.1)"  text-anchor="end">
+      {{ seconds }}
+    </text>
+    {% endif %}
+    {% if show_extra_time %}
+    <text x="{{ (extra_time_offset + (extra_time_width/2)) * 10 }}" y="140" transform="scale(0.1)" >
+      {{ extra_time }}
+    </text>
+    {% endif %}
+  </g>
+
+</svg>

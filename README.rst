@@ -4,7 +4,7 @@ football_badges
 
 .. start short_desc
 
-**Create a github-style badge showing the score of a football match.**
+**Create a GitHub-style badge showing the score of a football match.**
 
 .. end short_desc
 

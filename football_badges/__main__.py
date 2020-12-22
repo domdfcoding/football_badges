@@ -2,14 +2,13 @@
 #
 #  __main__.py
 """
-Creates a github-style badge showing the score of a football match.
+Creates a GitHub-style badge showing the score of a football match.
 
 For more information, run:
 
 .. prompt:: bash
 
 	python -m football_badges --help
-
 """
 #
 #  Copyright (c) 2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
@@ -36,82 +35,112 @@ import argparse
 import sys
 import tempfile
 import webbrowser
+from textwrap import dedent
 
 # 3rd party
-from domdf_python_tools import stderr_writer
-from pybadges.version import __version__
+from domdf_python_tools.utils import stderr_writer
 
 # this package
-from football_badges import football_badge
+from football_badges import __version__, football_badge
+
+__all__ = ["main"]
 
 
 def main():
-	parser = argparse.ArgumentParser('pybadges', description='generate a football score badge.')
 
-	parser.add_argument('home_name', help='The 2- or 3-letter code representing the home team')
-	parser.add_argument('away_name', help='The 2- or 3-letter code representing the away team')
-	parser.add_argument('--home-score', type=int, help='the score of the home team.')
-	parser.add_argument('--away-score', type=int, help='the score of the away team.')
-	parser.add_argument('--home-color', default='#555', help='the background color for the home team.')
-	parser.add_argument('--away-color', default='#007ec6', help='the background color for the away team.')
-	parser.add_argument('--elapsed-time', type=str, help="the elapsed time in 'MM:SS' format.")
-	parser.add_argument('--browser', action='store_true', default=False, help='display the badge in a browser tab')
+	description = dedent(
+			"""\
+	Generate a football score badge.
+
+	Each of 'home' and 'away' must comprise the following, separated by commas and without spaces:
+
+	The 2- or 3-letter code representing the team;
+	the team's score;
+	the background colour for the team score.
+
+	"""
+			)
+
+	parser = argparse.ArgumentParser("football-badges", description=description)
+
+	parser.add_argument("home")
+	parser.add_argument("away")
+	parser.add_argument("--elapsed-time", type=str, help="The elapsed time in 'MM:SS' format.")
 	parser.add_argument(
-			'--use-pil-text-measurer',
-			action='store_true',
+			"--browser", action="store_true", default=False, help="Display the badge in a browser tab."
+			)
+	parser.add_argument(
+			"--use-pil-text-measurer",
+			action="store_true",
 			default=False,
-			help='use the PilMeasurer to measure the length of text (kerning may '
-			'be more precise for non-Western languages. ' + '--deja-vu-sans-path must also be set.'
+			help=(
+					'Use the PilMeasurer to measure the length of text. '
+					'(kerning may be more precise for non-Western languages.) '
+					"--deja-vu-sans-path must also be set."
+					)
 			)
 	parser.add_argument(
-			'--deja-vu-sans-path',
+			"--deja-vu-sans-path",
 			default=None,
-			help='the path to the ttf font file containing DejaVu Sans. If not '
-			+ 'present on your system, you can download it from '
-			+ 'https://www.fontsquirrel.com/fonts/dejavu-sans'
+			help=(
+					"The path to the ttf font file containing DejaVu Sans. "
+					"If not present on your system, "
+					"you can download it from https://www.fontsquirrel.com/fonts/dejavu-sans"
+					)
 			)
 	parser.add_argument(
-			'--title',
+			"--title",
 			default=None,
-			help='the title to associate with the badge. See '
-			'https://developer.mozilla.org/en-US/docs/Web/SVG/Element/title'
+			help=(
+					'The title to associate with the badge. '
+					'See https://developer.mozilla.org/en-US/docs/Web/SVG/Element/title'
+					)
 			)
-	parser.add_argument('-v', '--version', action='version', version=f'%(prog)s {__version__}')
+	parser.add_argument("-v", "--version", action="version", version=f'%(prog)s {__version__}')
 
 	args = parser.parse_args()
+
+	home_name, home_score, home_colour, *_ = args.home.split(',')
+	home_score = int(home_score)
+
+	away_name, away_score, away_colour, *_ = args.away.split(',')
+	away_score = int(away_score)
 
 	measurer = None
 
 	if args.use_pil_text_measurer:
 		if args.deja_vu_sans_path is None:
-			stderr_writer('argument --use-pil-text-measurer: must also set --deja-vu-sans-path')
+			stderr_writer("argument --use-pil-text-measurer: must also set --deja-vu-sans-path")
 			sys.exit(1)
 		else:
+
 			# 3rd party
 			from pybadges import pil_text_measurer
+
 			measurer = pil_text_measurer.PilMeasurer(args.deja_vu_sans_path)
 
 	badge = football_badge(
-			home_name=args.home_name,
-			away_name=args.away_name,
-			home_score=args.home_score,
-			away_score=args.away_score,
+			home_name=home_name,
+			away_name=away_name,
+			home_score=home_score,
+			away_score=away_score,
 			elapsed_time=args.elapsed_time,
-			home_color=args.home_color,
-			away_color=args.away_color,
+			home_colour=home_colour,
+			away_colour=away_colour,
 			measurer=measurer,
 			title=args.title,
 			)
 
 	if args.browser:
-		_, badge_path = tempfile.mkstemp(suffix='.svg')
-		with open(badge_path, 'w') as f:
-			f.write(badge)
 
-		webbrowser.open_new_tab('file://' + badge_path)
+		with tempfile.NamedTemporaryFile('w', encoding="UTF-8", newline='\n', suffix=".svg") as fp:
+			fp.write(badge)
+			fp.flush()
+
+			webbrowser.open_new_tab("file://" + fp.name)
 	else:
-		print(badge, end='')
+		print(badge)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 	main()

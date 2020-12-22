@@ -7,7 +7,7 @@ email: 'dominic@davis-foster.co.uk'
 username: 'domdfcoding'
 version: '0.0.0'
 license: 'Apache'
-short_desc: 'Create a github-style badge showing the score of a football match.'
+short_desc: 'Create a GitHub-style badge showing the score of a football match.'
 
 enable_conda: False
 enable_tests: False
@@ -37,3 +37,6 @@ manifest_additional:
 extras_require:
   pil-measurement:
     - Pillow>=5,<6
+
+standalone_contrib_guide: true
+sphinx_html_theme: furo

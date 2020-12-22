@@ -1,5 +1,4 @@
-bs4
-domdf-python-tools
-jinja2
-lxml
-pybadges
+consolekit>=0.6.0
+domdf-python-tools>=1.9.0
+jinja2>=2.11.2
+pybadges>=2.2.1

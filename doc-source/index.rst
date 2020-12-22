@@ -4,7 +4,7 @@ football_badges
 
 .. start short_desc
 
-**Create a github-style badge showing the score of a football match.**
+**Create a GitHub-style badge showing the score of a football match.**
 
 .. end short_desc
 
@@ -130,17 +130,14 @@ Installation
 
 .. toctree::
 	:maxdepth: 3
-	:caption: API Reference
+	:caption: Documentation
 	:glob:
 
-	api/*
-
-.. toctree::
-	:maxdepth: 3
-	:caption: Contributing
-
+	example
+	api
 	contributing
 	Source
+
 
 .. start links
 
@@ -149,3 +146,7 @@ View the :ref:`Function Index <genindex>` or browse the `Source Code <_modules/i
 `Browse the GitHub Repository <https://github.com/domdfcoding/football_badges>`__
 
 .. end links
+
+
+.. image:: football_score_demo.svg
+	:width: 320px
