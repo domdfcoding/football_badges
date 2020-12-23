@@ -40,3 +40,6 @@ extras_require:
 
 standalone_contrib_guide: true
 sphinx_html_theme: furo
+
+tox_requirements:
+  - "tox-pip-version>=0.0.7"
