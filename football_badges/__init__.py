@@ -29,8 +29,10 @@ from typing import Optional
 from xml.dom import minidom
 
 # 3rd party
-import jinja2
-from pybadges import _NAME_TO_COLOR, precalculated_text_measurer, text_measurer
+from pybadges import _NAME_TO_COLOR, _remove_blanks, precalculated_text_measurer, text_measurer
+
+# this package
+from football_badges.utils import _environment
 
 __author__ = "Dominic Davis-Foster"
 __copyright__ = "2020 Dominic Davis-Foster"
@@ -39,23 +41,6 @@ __version__ = "0.0.0"
 __email__ = "dominic@davis-foster.co.uk"
 
 __all__ = ["football_badge"]
-
-_JINJA2_ENVIRONMENT = jinja2.Environment(
-		trim_blocks=True,
-		lstrip_blocks=True,
-		loader=jinja2.PackageLoader("football_badges", '.'),
-		autoescape=jinja2.select_autoescape(["svg"])
-		)
-_JINJA2_ENVIRONMENT.globals["len"] = len
-
-
-def _remove_blanks(node):
-	for x in node.childNodes:
-		if x.nodeType == minidom.Node.TEXT_NODE:
-			if x.nodeValue:
-				x.nodeValue = x.nodeValue.strip()
-		elif x.nodeType == minidom.Node.ELEMENT_NODE:
-			_remove_blanks(x)
 
 
 def football_badge(
@@ -85,15 +70,16 @@ def football_badge(
 	:param elapsed_time: The elapsed time in the match.
 	:param extra_time: The number of minutes of extra time.
 	:param title: The title to set in the SVG file.
+		See https://developer.mozilla.org/en-US/docs/Web/SVG/Element/title
 	:param measurer: A text_measurer.TextMeasurer that can be used to measure the
-		width of left_text and right_text.
+		width of ``left_text`` and ``right_text``.
 	"""
 
 	if measurer is None:
 		measurer = (precalculated_text_measurer.PrecalculatedTextMeasurer.default())
 
 	score = f"{home_score} - {away_score}"
-	template = _JINJA2_ENVIRONMENT.get_template("template.svg")
+	template = _environment().get_template("template.svg")
 
 	if elapsed_time is not None:
 		show_time = True
@@ -104,8 +90,8 @@ def football_badge(
 
 	if extra_time is not None:
 		show_extra_time = True
-		extra_time = str(extra_time)
-		extra_time_width = measurer.text_width(extra_time) / 8,
+		extra_time = f"+{extra_time.lstrip('+')}"
+		extra_time_width = measurer.text_width(extra_time) / 8
 	else:
 		show_extra_time = False
 		extra_time_width = 0
