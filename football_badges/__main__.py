@@ -32,7 +32,7 @@ For more information, run:
 
 # stdlib
 import sys
-from typing import IO, Optional
+from typing import IO, Optional, Union
 
 # 3rd party
 import click
@@ -45,43 +45,6 @@ __all__ = ["main"]
 
 
 @click.version_option(__version__)
-@click.argument("home", type=click.STRING)
-@click.argument("away", type=click.STRING)
-@click.option(
-		"-e",
-		"--elapsed-time",
-		type=click.STRING,
-		help="The elapsed time in 'MM:SS' format.",
-		default=None,
-		)
-@click.option(
-		"-E",
-		"--extra-time",
-		type=click.STRING,
-		help="The number of minutes of extra time.",
-		default=None,
-		)
-@click.option(
-		"-t",
-		"--title",
-		type=click.STRING,
-		help="The title to associate with the badge.",
-		default="Football Score"
-		)
-@click.option(
-		"-f",
-		"--file",
-		type=click.File('w'),
-		help="The file to write the SVG output to.",
-		default='-',
-		)
-@click.option(
-		"-b",
-		"--browser",
-		is_flag=True,
-		default=False,
-		help="Display the badge in a browser tab.",
-		)
 @click.option(
 		"--use-pil-text-measurer",
 		is_flag=True,
@@ -102,6 +65,43 @@ __all__ = ["main"]
 				"you can download it from https://www.fontsquirrel.com/fonts/dejavu-sans"
 				)
 		)
+@click.option(
+		"-b",
+		"--browser",
+		is_flag=True,
+		default=False,
+		help="Display the badge in a browser tab.",
+		)
+@click.option(
+		"-f",
+		"--file",
+		type=click.File('w'),
+		help="The file to write the SVG output to.",
+		default='-',
+		)
+@click.option(
+		"-t",
+		"--title",
+		type=click.STRING,
+		help="The title to associate with the badge.",
+		default="Football Score"
+		)
+@click.option(
+		"-E",
+		"--extra-time",
+		type=click.STRING,
+		help="The number of minutes of extra time.",
+		default=None,
+		)
+@click.option(
+		"-e",
+		"--elapsed-time",
+		type=click.STRING,
+		help="The elapsed time in 'MM:SS' format.",
+		default=None,
+		)
+@click.argument("away", type=click.STRING)
+@click.argument("home", type=click.STRING)
 @click_command()
 def main(
 		home: str,
@@ -126,9 +126,11 @@ def main(
 	 * the background colour for the team score.
 	"""
 
+	home_score: Union[str, int]
 	home_name, home_score, home_colour, *_ = home.split(',')
 	home_score = int(home_score)
 
+	away_score: Union[str, int]
 	away_name, away_score, away_colour, *_ = away.split(',')
 	away_score = int(away_score)
 

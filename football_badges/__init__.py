@@ -25,11 +25,12 @@ Creates a GitHub-style badge showing the score of a football match.
 #
 
 # stdlib
-from typing import Optional
-from xml.dom import minidom
+from typing import Optional, Union
 
 # 3rd party
-from pybadges import _NAME_TO_COLOR, _remove_blanks, precalculated_text_measurer, text_measurer
+from domdf_python_tools.stringlist import StringList
+from lxml import etree, objectify  # type: ignore
+from pybadges import _NAME_TO_COLOR, precalculated_text_measurer, text_measurer
 
 # this package
 from football_badges.utils import _environment
@@ -52,7 +53,7 @@ def football_badge(
 		away_colour: str,
 		*,
 		elapsed_time: Optional[str] = None,
-		extra_time: Optional[str] = None,
+		extra_time: Union[int, str, None] = None,
 		title: str = "Football Score",
 		measurer: Optional[text_measurer.TextMeasurer] = None,
 		) -> str:
@@ -73,6 +74,8 @@ def football_badge(
 		See https://developer.mozilla.org/en-US/docs/Web/SVG/Element/title
 	:param measurer: A text_measurer.TextMeasurer that can be used to measure the
 		width of ``left_text`` and ``right_text``.
+
+	.. seealso:: https://liaison.reuters.com/tools/sports-team-codes for a list of team codes.
 	"""
 
 	if measurer is None:
@@ -90,7 +93,7 @@ def football_badge(
 
 	if extra_time is not None:
 		show_extra_time = True
-		extra_time = f"+{extra_time.lstrip('+')}"
+		extra_time = f"+{str(extra_time).lstrip('+')}"
 		extra_time_width = measurer.text_width(extra_time) / 8
 	else:
 		show_extra_time = False
@@ -111,8 +114,9 @@ def football_badge(
 			extra_time_width=extra_time_width,
 			)
 
-	xml = minidom.parseString(svg)
-	_remove_blanks(xml)
-	xml.normalize()
+	xml = objectify.fromstring(svg)
 
-	return xml.documentElement.toxml()
+	buffer = StringList(etree.tostring(xml, pretty_print=True).decode("UTF-8"))
+	buffer.blankline(ensure_single=True)
+
+	return str(buffer)

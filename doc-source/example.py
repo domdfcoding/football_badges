@@ -14,7 +14,7 @@ s = football_badge(
 		home_score=9,
 		away_score=0,
 		elapsed_time="92:34",
-		extra_time="+5",
+		extra_time='5',
 		)
 
 with open("doc-source/football_score_demo.svg", 'w', encoding="UTF-8") as fp:

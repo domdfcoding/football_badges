@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="102.0" height="20">
+  <title>Football Score</title>
+  <linearGradient id="smooth" x2="0" y2="100%">
+    <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+    <stop offset="1" stop-opacity=".1"/>
+  </linearGradient>
+  <clipPath id="round">
+    <rect width="102.0" height="20" rx="3" fill="#fff"/>
+  </clipPath>
+  <g clip-path="url(#round)">
+    <rect width="35" height="20" fill="#e05d44"/>
+    <rect x="35" width="32.0" height="20" fill="black"/>
+    <rect x="67.0" width="35" height="20" fill="#97CA00"/>
+    <rect width="102.0" height="20" fill="url(#smooth)"/>
+  </g>
+  <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="110">
+    <text x="175.0" y="140" transform="scale(0.1)" letter-spacing="10" text-anchor="middle">
+      AV
+    </text>
+    <text x="510.0" y="140" transform="scale(0.1)" textLength="220.0" text-anchor="middle">
+      5 - 5
+    </text>
+    <text x="845.0" y="140" transform="scale(0.1)" letter-spacing="10" text-anchor="middle">
+      FUL
+    </text>
+  </g>
+</svg>
