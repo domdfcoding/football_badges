@@ -167,7 +167,7 @@ def main(
 		open_in_browser(badge)
 
 	else:
-		click.echo(badge, file=file)
+		click.echo(badge, file=file, nl=False)
 
 
 if __name__ == "__main__":
