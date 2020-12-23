@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1360.55" height="20">
+  <title>My Title&lt;/title&gt;&lt;script&gt;alert(9)&lt;/script&gt;&lt;title&gt;</title>
+  <linearGradient id="smooth" x2="0" y2="100%">
+    <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+    <stop offset="1" stop-opacity=".1"/>
+  </linearGradient>
+  <clipPath id="round">
+    <rect width="1360.55" height="20" rx="3" fill="#fff"/>
+  </clipPath>
+  <g clip-path="url(#round)">
+    <rect width="35" height="20" fill="red&quot;/&gt;&lt;script&gt;alert(3)&lt;/script&gt;&lt;text"/>
+    <rect x="35" width="485.4" height="20" fill="black"/>
+    <rect x="520.4" width="35" height="20" fill="green&quot;/&gt;&lt;script&gt;alert(4)&lt;/script&gt;&lt;text"/>
+    <rect width="555.4" height="20" fill="url(#smooth)"/>
+    <rect x="555.4" width="492.4" height="20" fill="black"/>
+    <rect x="1047.8" width="312.75" height="20" fill="#db1818"/>
+  </g>
+  <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="110">
+    <text x="175.0" y="140" transform="scale(0.1)" letter-spacing="10" text-anchor="middle">
+      STK&lt;/text&gt;&lt;script&gt;alert(1)&lt;/script&gt;&lt;text&gt;
+    </text>
+    <text x="2777.0" y="140" transform="scale(0.1)" textLength="4754.0" text-anchor="middle">
+      5&lt;/text&gt;&lt;script&gt;alert(5)&lt;/script&gt;&lt;rect&gt; - 3&lt;/text&gt;&lt;script&gt;alert(6)&lt;/script&gt;&lt;rect&gt;
+    </text>
+    <text x="5379.0" y="140" transform="scale(0.1)" letter-spacing="10" text-anchor="middle">
+      WYC&lt;/text&gt;&lt;script&gt;alert(2)&lt;/script&gt;&lt;text&gt;
+    </text>
+    <text x="7985.999999999999" y="140" transform="scale(0.1)" text-anchor="end">
+      12
+    </text>
+    <text x="8015.999999999999" y="140" transform="scale(0.1)">:</text>
+    <text x="8185.999999999999" y="140" transform="scale(0.1)" text-anchor="end">
+      34&lt;/text&gt;&lt;script&gt;alert(7)&lt;/script&gt;&lt;text&gt;
+    </text>
+    <text x="12041.75" y="140" transform="scale(0.1)">
+      +30&lt;/text&gt;&lt;script&gt;alert(8)&lt;/script&gt;&lt;text&gt;
+    </text>
+  </g>
+</svg>

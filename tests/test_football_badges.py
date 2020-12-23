@@ -260,3 +260,20 @@ class TestCLI:
 
 		assert result.exit_code == 0
 		check_file_output(filename, file_regression)
+
+
+def test_injection(file_regression: FileRegressionFixture, tmp_pathplus):
+	output = football_badge(
+			home_name="STK</text><script>alert(1)</script><text>",
+			away_name="WYC</text><script>alert(2)</script><text>",
+			home_colour='red"/><script>alert(3)</script><text',
+			away_colour='green"/><script>alert(4)</script><text',
+			home_score="5</text><script>alert(5)</script><rect>",
+			away_score="3</text><script>alert(6)</script><rect>",
+			elapsed_time="12:34</text><script>alert(7)</script><text>",
+			extra_time="+30</text><script>alert(8)</script><text>",
+			title="My Title</title><script>alert(9)</script><title>"
+			)
+
+	check_file_regression(output, file_regression, extension=".svg")
+
