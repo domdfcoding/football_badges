@@ -53,7 +53,11 @@ def _environment():
 			trim_blocks=True,
 			lstrip_blocks=True,
 			loader=jinja2.PackageLoader("football_badges", '.'),
-			autoescape=jinja2.select_autoescape(["svg"])
+			autoescape=jinja2.select_autoescape(
+					enabled_extensions=["svg"],
+					default_for_string=True,
+					default=True,
+					)
 			)
 	environment.globals["len"] = len
 	return environment
