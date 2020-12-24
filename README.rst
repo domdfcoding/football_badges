@@ -92,7 +92,7 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 .. |language| image:: https://img.shields.io/github/languages/top/domdfcoding/football_badges
 	:alt: GitHub top language
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/football_badges/v0.0.0
+.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/football_badges/v0.1.0
 	:target: https://github.com/domdfcoding/football_badges/pulse
 	:alt: GitHub commits since tagged version
 

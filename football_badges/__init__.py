@@ -38,7 +38,7 @@ from football_badges.utils import _environment
 __author__ = "Dominic Davis-Foster"
 __copyright__ = "2020 Dominic Davis-Foster"
 __license__ = "Apache Software License v2.0"
-__version__ = "0.0.0"
+__version__ = "0.1.0"
 __email__ = "dominic@davis-foster.co.uk"
 
 __all__ = ["football_badge"]
@@ -71,7 +71,7 @@ def football_badge(
 	:param elapsed_time: The elapsed time in the match.
 	:param extra_time: The number of minutes of extra time.
 	:param title: The title to set in the SVG file.
-		See https://developer.mozilla.org/en-US/docs/Web/SVG/Element/title
+		See https://developer.mozilla.org/en-US/docs/Web/SVG/Element/title.
 	:param measurer: A text_measurer.TextMeasurer that can be used to measure the
 		width of ``left_text`` and ``right_text``.
 

@@ -95,7 +95,7 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 	:alt: GitHub top language
 
 .. |commits-since| github-shield::
-	:commits-since: v0.0.0
+	:commits-since: v0.1.0
 	:alt: GitHub commits since tagged version
 
 .. |commits-latest| github-shield::
@@ -149,7 +149,3 @@ View the :ref:`Function Index <genindex>` or browse the `Source Code <_modules/i
 `Browse the GitHub Repository <https://github.com/domdfcoding/football_badges>`__
 
 .. end links
-
-
-.. image:: football_score_demo.svg
-	:width: 320px
