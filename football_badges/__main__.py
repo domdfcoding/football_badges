@@ -136,7 +136,7 @@ def main(
 
 	measurer = None
 
-	if use_pil_text_measurer:
+	if use_pil_text_measurer:  # pragma: no cover
 		if deja_vu_sans_path is None:
 			raise click.UsageError("--use-pil-text-measurer: must also set --deja-vu-sans-path")
 		else:

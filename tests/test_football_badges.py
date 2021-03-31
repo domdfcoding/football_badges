@@ -1,4 +1,5 @@
 # stdlib
+import webbrowser
 from typing import Tuple
 
 # 3rd party
@@ -269,6 +270,36 @@ class TestCLI:
 
 		assert result.exit_code == 0
 		advanced_file_regression.check_file(filename)
+
+	def test_browser(
+			self,
+			monkeypatch,
+			advanced_file_regression: AdvancedFileRegressionFixture,
+			):
+
+		def open_new_tab(url):
+			url = PathPlus(url[7:])
+			assert url.is_file()
+			advanced_file_regression.check_file(url)
+
+		monkeypatch.setattr(webbrowser, "open_new_tab", open_new_tab)
+
+		runner = CliRunner()
+		result: Result = runner.invoke(
+				main,
+				catch_exceptions=False,
+				args=[
+						f"STK,5,red",
+						f"WYC,2,green",
+						"--elapsed-time",
+						"90:00",
+						"--extra-time",
+						'5',
+						"--browser",
+						]
+				)
+
+		assert result.exit_code == 0
 
 
 def test_injection(
