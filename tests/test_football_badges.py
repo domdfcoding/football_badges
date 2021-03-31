@@ -3,10 +3,10 @@ from typing import Tuple
 
 # 3rd party
 import pytest
-from click.testing import CliRunner, Result
+from coincidence.regressions import AdvancedFileRegressionFixture
+from consolekit.testing import CliRunner, Result
 from domdf_python_tools.iterative import permutations
-from domdf_python_tools.testing import check_file_output, check_file_regression
-from pytest_regressions.file_regression import FileRegressionFixture
+from domdf_python_tools.paths import PathPlus
 
 # this package
 from football_badges import football_badge
@@ -91,7 +91,10 @@ class TestLibrary:
 	@team_perms
 	@scores
 	def test_teams_and_score(
-			self, file_regression: FileRegressionFixture, score: Tuple[int, int], teams: Tuple[str, str]
+			self,
+			advanced_file_regression: AdvancedFileRegressionFixture,
+			score: Tuple[int, int],
+			teams: Tuple[str, str],
 			):
 		output = football_badge(
 				home_name=teams[0],
@@ -102,10 +105,10 @@ class TestLibrary:
 				away_score=score[1],
 				)
 
-		check_file_regression(output, file_regression, extension=".svg")
+		advanced_file_regression.check(output, extension=".svg")
 
 	@elapsed_times
-	def test_times(self, file_regression: FileRegressionFixture, elapsed_time):
+	def test_times(self, advanced_file_regression: AdvancedFileRegressionFixture, elapsed_time):
 		output = football_badge(
 				home_name="STK",
 				away_name="WYC",
@@ -116,10 +119,10 @@ class TestLibrary:
 				elapsed_time=elapsed_time
 				)
 
-		check_file_regression(output, file_regression, extension=".svg")
+		advanced_file_regression.check(output, extension=".svg")
 
 	@elapsed_extra_times
-	def test_extra_time(self, file_regression: FileRegressionFixture, time):
+	def test_extra_time(self, advanced_file_regression: AdvancedFileRegressionFixture, time):
 		output = football_badge(
 				home_name="STK",
 				away_name="WYC",
@@ -131,7 +134,7 @@ class TestLibrary:
 				extra_time=time[1],
 				)
 
-		check_file_regression(output, file_regression, extension=".svg")
+		advanced_file_regression.check(output, extension=".svg")
 
 
 class TestCLI:
@@ -139,7 +142,10 @@ class TestCLI:
 	@team_perms
 	@scores
 	def test_teams_and_score(
-			self, file_regression: FileRegressionFixture, score: Tuple[int, int], teams: Tuple[str, str]
+			self,
+			advanced_file_regression: AdvancedFileRegressionFixture,
+			score: Tuple[int, int],
+			teams: Tuple[str, str],
 			):
 		runner = CliRunner()
 		result: Result = runner.invoke(
@@ -152,10 +158,10 @@ class TestCLI:
 				)
 
 		assert result.exit_code == 0
-		check_file_regression(result.stdout.rstrip(), file_regression, extension=".svg")
+		result.check_stdout(advanced_file_regression, extension=".svg")
 
 	@elapsed_times
-	def test_times(self, file_regression: FileRegressionFixture, elapsed_time):
+	def test_times(self, advanced_file_regression: AdvancedFileRegressionFixture, elapsed_time):
 		runner = CliRunner()
 		result: Result = runner.invoke(
 				main,
@@ -169,7 +175,7 @@ class TestCLI:
 				)
 
 		assert result.exit_code == 0
-		check_file_regression(result.stdout.rstrip(), file_regression, extension=".svg")
+		result.check_stdout(advanced_file_regression, extension=".svg")
 
 		runner = CliRunner()
 		result = runner.invoke(
@@ -182,10 +188,10 @@ class TestCLI:
 				)
 
 		assert result.exit_code == 0
-		check_file_regression(result.stdout.rstrip(), file_regression, extension=".svg")
+		result.check_stdout(advanced_file_regression, extension=".svg")
 
 	@elapsed_extra_times
-	def test_extra_time(self, file_regression: FileRegressionFixture, time):
+	def test_extra_time(self, advanced_file_regression: AdvancedFileRegressionFixture, time):
 		runner = CliRunner()
 		result: Result = runner.invoke(
 				main,
@@ -201,9 +207,8 @@ class TestCLI:
 				)
 
 		assert result.exit_code == 0
-		check_file_regression(result.stdout.rstrip(), file_regression, extension=".svg")
+		result.check_stdout(advanced_file_regression, extension=".svg")
 
-		runner = CliRunner()
 		result = runner.invoke(
 				main,
 				catch_exceptions=False,
@@ -218,9 +223,13 @@ class TestCLI:
 				)
 
 		assert result.exit_code == 0
-		check_file_regression(result.stdout.rstrip(), file_regression, extension=".svg")
+		result.check_stdout(advanced_file_regression, extension=".svg")
 
-	def test_to_file(self, file_regression: FileRegressionFixture, tmp_pathplus):
+	def test_to_file(
+			self,
+			advanced_file_regression: AdvancedFileRegressionFixture,
+			tmp_pathplus: PathPlus,
+			):
 		filename = tmp_pathplus / "badge.svg"
 
 		runner = CliRunner()
@@ -240,7 +249,7 @@ class TestCLI:
 				)
 
 		assert result.exit_code == 0
-		check_file_output(filename, file_regression)
+		result.check_stdout(advanced_file_regression, extension=".svg")
 
 		runner = CliRunner()
 		result = runner.invoke(
@@ -259,10 +268,13 @@ class TestCLI:
 				)
 
 		assert result.exit_code == 0
-		check_file_output(filename, file_regression)
+		result.check_stdout(advanced_file_regression, extension=".svg")
 
 
-def test_injection(file_regression: FileRegressionFixture, tmp_pathplus):
+def test_injection(
+		advanced_file_regression: AdvancedFileRegressionFixture,
+		tmp_pathplus: PathPlus,
+		):
 	output = football_badge(
 			home_name="STK</text><script>alert(1)</script><text>",
 			away_name="WYC</text><script>alert(2)</script><text>",
@@ -275,4 +287,4 @@ def test_injection(file_regression: FileRegressionFixture, tmp_pathplus):
 			title="My Title</title><script>alert(9)</script><title>"
 			)
 
-	check_file_regression(output, file_regression, extension=".svg")
+	advanced_file_regression.check(output, extension=".svg")
