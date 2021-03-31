@@ -19,7 +19,7 @@ Example
 .. |500| image:: football_score_demo.svg
 	:width: 500px
 
-.. download:: example.py
+:download:`Download source <example.py>`
 
 .. literalinclude:: example.py
 	:language: python
