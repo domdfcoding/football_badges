@@ -249,7 +249,7 @@ class TestCLI:
 				)
 
 		assert result.exit_code == 0
-		result.check_stdout(advanced_file_regression, extension=".svg")
+		advanced_file_regression.check_file(filename)
 
 		runner = CliRunner()
 		result = runner.invoke(
@@ -268,7 +268,7 @@ class TestCLI:
 				)
 
 		assert result.exit_code == 0
-		result.check_stdout(advanced_file_regression, extension=".svg")
+		advanced_file_regression.check_file(filename)
 
 
 def test_injection(
