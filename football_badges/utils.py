@@ -21,13 +21,13 @@ Utility functions.
 #
 
 # stdlib
-import tempfile
 import time
 import webbrowser
 from functools import lru_cache
 
 # 3rd party
 import jinja2
+from domdf_python_tools.paths import TemporaryPathPlus
 
 __all__ = ["open_in_browser"]
 
@@ -39,11 +39,10 @@ def open_in_browser(svg: str) -> None:
 	:param svg:
 	"""
 
-	with tempfile.NamedTemporaryFile('w', encoding="UTF-8", newline='\n', suffix=".svg") as fp:
-		fp.write(svg)
-		fp.flush()
+	with TemporaryPathPlus() as tmpdir:
+		(tmpdir / "badge.svg").write_text(svg)
 
-		webbrowser.open_new_tab("file://" + fp.name)
+		webbrowser.open_new_tab((tmpdir / "badge.svg").as_uri())
 		time.sleep(1)
 
 
