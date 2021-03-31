@@ -1,8 +1,9 @@
 # stdlib
 import webbrowser
+from urllib.parse import urlparse
 
 # 3rd party
-from coincidence import AdvancedFileRegressionFixture
+from coincidence.regressions import AdvancedFileRegressionFixture
 from domdf_python_tools.paths import PathPlus
 
 # this package
@@ -15,7 +16,7 @@ def test_open_in_browser(
 		):
 
 	def open_new_tab(url):
-		url = PathPlus(url[7:])
+		url = PathPlus(urlparse(url).path)
 		assert url.is_file()
 		assert url.read_text() == "Not actually an SVG"
 
