@@ -9,6 +9,7 @@ version: '0.1.0'
 license: 'Apache'
 short_desc: 'Create a GitHub-style badge showing the score of a football match.'
 
+use_whey: true
 enable_conda: False
 
 python_versions:

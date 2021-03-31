@@ -1,8 +1,0 @@
-include __pkginfo__.py
-include LICENSE
-include requirements.txt
-prune **/__pycache__
-include football_badges/*.svg
-include football_badges/*.json
-recursive-include football_badges *.pyi
-include football_badges/py.typed
