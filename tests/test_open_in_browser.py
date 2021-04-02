@@ -16,7 +16,7 @@ def test_open_in_browser(
 		):
 
 	def open_new_tab(url):
-		url = PathPlus(urlparse(url).path)
+		url = PathPlus.from_uri(url)
 		assert url.is_file()
 		assert url.read_text() == "Not actually an SVG"
 
