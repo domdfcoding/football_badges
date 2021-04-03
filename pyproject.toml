@@ -35,3 +35,7 @@ python-implementations = [ "CPython",]
 platforms = [ "Windows", "macOS", "Linux",]
 license-key = "Apache-2.0"
 additional-files = [ "include football_badges/*.svg", "include football_badges/*.json",]
+
+[tool.mkrecipe]
+conda-channels = [ "domdfcoding",]
+extras = "all"
