@@ -278,7 +278,7 @@ class TestCLI:
 			):
 
 		def open_new_tab(url):
-			url = PathPlus(url[7:])
+			url = PathPlus.from_uri(url)
 			assert url.is_file()
 			advanced_file_regression.check_file(url)
 
