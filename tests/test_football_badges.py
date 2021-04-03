@@ -302,10 +302,7 @@ class TestCLI:
 		assert result.exit_code == 0
 
 
-def test_injection(
-		advanced_file_regression: AdvancedFileRegressionFixture,
-		tmp_pathplus: PathPlus,
-		):
+def test_injection(advanced_file_regression: AdvancedFileRegressionFixture):
 	output = football_badge(
 			home_name="STK</text><script>alert(1)</script><text>",
 			away_name="WYC</text><script>alert(2)</script><text>",
