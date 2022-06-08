@@ -25,7 +25,7 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 	* - Activity
 	  - |commits-latest| |commits-since| |maintained| |pypi-downloads|
 	* - QA
-	  - |codefactor| |actions_flake8| |actions_mypy| |pre_commit_ci|
+	  - |codefactor| |actions_flake8| |actions_mypy|
 	* - Other
 	  - |license| |language| |requires|
 
@@ -57,8 +57,8 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 	:target: https://github.com/domdfcoding/football_badges/actions?query=workflow%3A%22mypy%22
 	:alt: mypy status
 
-.. |requires| image:: https://requires.io/github/domdfcoding/football_badges/requirements.svg?branch=master
-	:target: https://requires.io/github/domdfcoding/football_badges/requirements/?branch=master
+.. |requires| image:: https://dependency-dash.herokuapp.com/github/domdfcoding/football_badges/badge.svg
+	:target: https://dependency-dash.herokuapp.com/github/domdfcoding/football_badges/
 	:alt: Requirements Status
 
 .. |coveralls| image:: https://img.shields.io/coveralls/github/domdfcoding/football_badges/master?logo=coveralls
@@ -100,16 +100,12 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 	:target: https://github.com/domdfcoding/football_badges/commit/master
 	:alt: GitHub last commit
 
-.. |maintained| image:: https://img.shields.io/maintenance/yes/2021
+.. |maintained| image:: https://img.shields.io/maintenance/yes/2022
 	:alt: Maintenance
 
 .. |pypi-downloads| image:: https://img.shields.io/pypi/dm/football_badges
 	:target: https://pypi.org/project/football_badges/
 	:alt: PyPI - Downloads
-
-.. |pre_commit_ci| image:: https://results.pre-commit.ci/badge/github/domdfcoding/football_badges/master.svg
-	:target: https://results.pre-commit.ci/latest/github/domdfcoding/football_badges/master
-	:alt: pre-commit.ci status
 
 .. end shields
 
