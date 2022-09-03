@@ -60,8 +60,8 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 		:workflow: mypy
 		:alt: mypy status
 
-	.. |requires| image:: https://dependency-dash.herokuapp.com/github/domdfcoding/football_badges/badge.svg
-		:target: https://dependency-dash.herokuapp.com/github/domdfcoding/football_badges/
+	.. |requires| image:: https://dependency-dash.repo-helper.uk/github/domdfcoding/football_badges/badge.svg
+		:target: https://dependency-dash.repo-helper.uk/github/domdfcoding/football_badges/
 		:alt: Requirements Status
 
 	.. |coveralls| coveralls-shield::

@@ -57,8 +57,8 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 	:target: https://github.com/domdfcoding/football_badges/actions?query=workflow%3A%22mypy%22
 	:alt: mypy status
 
-.. |requires| image:: https://dependency-dash.herokuapp.com/github/domdfcoding/football_badges/badge.svg
-	:target: https://dependency-dash.herokuapp.com/github/domdfcoding/football_badges/
+.. |requires| image:: https://dependency-dash.repo-helper.uk/github/domdfcoding/football_badges/badge.svg
+	:target: https://dependency-dash.repo-helper.uk/github/domdfcoding/football_badges/
 	:alt: Requirements Status
 
 .. |coveralls| image:: https://img.shields.io/coveralls/github/domdfcoding/football_badges/master?logo=coveralls
