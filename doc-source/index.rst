@@ -5,6 +5,7 @@ football_badges
 .. start short_desc
 
 .. documentation-summary::
+	:meta:
 
 .. end short_desc
 
@@ -27,7 +28,7 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 		* - Activity
 		  - |commits-latest| |commits-since| |maintained| |pypi-downloads|
 		* - QA
-		  - |codefactor| |actions_flake8| |actions_mypy| |pre_commit_ci|
+		  - |codefactor| |actions_flake8| |actions_mypy|
 		* - Other
 		  - |license| |language| |requires|
 
@@ -59,7 +60,8 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 		:workflow: mypy
 		:alt: mypy status
 
-	.. |requires| requires-io-shield::
+	.. |requires| image:: https://dependency-dash.repo-helper.uk/github/domdfcoding/football_badges/badge.svg
+		:target: https://dependency-dash.repo-helper.uk/github/domdfcoding/football_badges/
 		:alt: Requirements Status
 
 	.. |coveralls| coveralls-shield::
@@ -104,16 +106,13 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 		:last-commit:
 		:alt: GitHub last commit
 
-	.. |maintained| maintained-shield:: 2021
+	.. |maintained| maintained-shield:: 2022
 		:alt: Maintenance
 
 	.. |pypi-downloads| pypi-shield::
 		:project: football_badges
 		:downloads: month
 		:alt: PyPI - Downloads
-
-	.. |pre_commit_ci| pre-commit-ci-shield::
-		:alt: pre-commit.ci status
 
 .. end shields
 
@@ -144,12 +143,18 @@ Installation
 	Source
 
 
+.. sidebar-links::
+	:caption: Links
+	:github:
+	:pypi: football_badges
+
+
 .. start links
 
 .. only:: html
 
 	View the :ref:`Function Index <genindex>` or browse the `Source Code <_modules/index.html>`__.
 
-	`Browse the GitHub Repository <https://github.com/domdfcoding/football_badges>`__
+	:github:repo:`Browse the GitHub Repository <domdfcoding/football_badges>`
 
 .. end links
