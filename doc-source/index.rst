@@ -33,7 +33,7 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 		  - |license| |language| |requires|
 
 	.. |docs| rtfd-shield::
-		:project: football_badges
+		:project: football-badges
 		:alt: Documentation Build Status
 
 	.. |docs_check| actions-shield::
@@ -106,7 +106,7 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 		:last-commit:
 		:alt: GitHub last commit
 
-	.. |maintained| maintained-shield:: 2022
+	.. |maintained| maintained-shield:: 2023
 		:alt: Maintenance
 
 	.. |pypi-downloads| pypi-shield::

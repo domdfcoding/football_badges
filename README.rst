@@ -29,8 +29,8 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 	* - Other
 	  - |license| |language| |requires|
 
-.. |docs| image:: https://img.shields.io/readthedocs/football_badges/latest?logo=read-the-docs
-	:target: https://football_badges.readthedocs.io/en/latest
+.. |docs| image:: https://img.shields.io/readthedocs/football-badges/latest?logo=read-the-docs
+	:target: https://football-badges.readthedocs.io/en/latest
 	:alt: Documentation Build Status
 
 .. |docs_check| image:: https://github.com/domdfcoding/football_badges/workflows/Docs%20Check/badge.svg
@@ -100,7 +100,7 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 	:target: https://github.com/domdfcoding/football_badges/commit/master
 	:alt: GitHub last commit
 
-.. |maintained| image:: https://img.shields.io/maintenance/yes/2022
+.. |maintained| image:: https://img.shields.io/maintenance/yes/2023
 	:alt: Maintenance
 
 .. |pypi-downloads| image:: https://img.shields.io/pypi/dm/football_badges
