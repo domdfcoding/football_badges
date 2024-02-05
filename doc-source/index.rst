@@ -106,7 +106,7 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 		:last-commit:
 		:alt: GitHub last commit
 
-	.. |maintained| maintained-shield:: 2023
+	.. |maintained| maintained-shield:: 2024
 		:alt: Maintenance
 
 	.. |pypi-downloads| pypi-shield::
