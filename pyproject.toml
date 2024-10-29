@@ -24,8 +24,8 @@ Homepage = "https://github.com/domdfcoding/football_badges"
 Documentation = "https://football-badges.readthedocs.io/en/latest"
 
 [project.optional-dependencies]
-pil-measurement = [ "pillow<6,>=5",]
-all = [ "pillow<6,>=5",]
+pil-measurement = [ "pillow<12,>=5",]
+all = [ "pillow<12,>=5",]
 
 [tool.whey]
 base-classifiers = [ "Development Status :: 4 - Beta", "Intended Audience :: Developers", "Typing :: Typed",]
