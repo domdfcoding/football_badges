@@ -17,11 +17,13 @@ min_coverage: 100
 mypy_version: "0.812"
 
 python_versions:
-  - 3.6
   - 3.7
   - 3.8
   - 3.9
-  - 3.10-dev
+  - "3.10"
+  - "3.11"
+  - "3.12"
+  - "3.13"
 
 classifiers:
   - 'Intended Audience :: Developers'
