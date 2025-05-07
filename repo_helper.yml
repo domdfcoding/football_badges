@@ -44,6 +44,3 @@ manifest_additional:
 extras_require:
   pil-measurement:
     - Pillow>=5,<6
-
-tox_requirements:
-  - "tox-pip-version>=0.0.7"

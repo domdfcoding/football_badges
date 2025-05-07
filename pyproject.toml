@@ -143,3 +143,6 @@ include = false
 [tool.dependency-dash."doc-source/requirements.txt"]
 order = 30
 include = false
+
+[tool.dep_checker]
+allowed_unused = [ "setuptools", "standard_imghdr",]
