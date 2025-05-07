@@ -47,6 +47,8 @@ known_third_party = [
     "pytest_rerunfailures",
     "pytest_timeout",
     "requests",
+    "setuptools",
+    "standard_imghdr",
 ]
 known_first_party = [ "football_badges",]
 line_length = 115
