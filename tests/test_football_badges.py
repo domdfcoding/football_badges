@@ -1,6 +1,6 @@
 # stdlib
 import webbrowser
-from typing import Tuple
+from typing import Tuple, Union
 
 # 3rd party
 import pytest
@@ -43,11 +43,12 @@ scores = pytest.mark.parametrize(
 				pytest.param((5, 5), id="5_5"),
 				pytest.param((10, 4), id="10_4"),
 				pytest.param((5, 2), id="5_2"),
-				]
+				],
 		)
 
 elapsed_times = pytest.mark.parametrize(
-		"elapsed_time", [
+		"elapsed_time",
+		[
 				"0:05",
 				"0:55",
 				"4:30",
@@ -58,7 +59,7 @@ elapsed_times = pytest.mark.parametrize(
 				"56:09",
 				"74:39",
 				"90:00",
-				]
+				],
 		)
 
 elapsed_extra_times = pytest.mark.parametrize(
@@ -79,11 +80,12 @@ elapsed_extra_times = pytest.mark.parametrize(
 				pytest.param(("119:10", "30"), id='m'),
 				pytest.param(("119:10", "+30"), id='n'),
 				pytest.param(("119:10", 30), id='o'),
-				]
+				],
 		)
 
 team_perms = pytest.mark.parametrize(
-		"teams", [pytest.param(t, id=str(idx)) for idx, t in enumerate(permutations(teams, 2)[::3])]
+		"teams",
+		[pytest.param(t, id=str(idx)) for idx, t in enumerate(permutations(teams, 2)[::3])],
 		)
 
 
@@ -109,7 +111,7 @@ class TestLibrary:
 		advanced_file_regression.check(output, extension=".svg")
 
 	@elapsed_times
-	def test_times(self, advanced_file_regression: AdvancedFileRegressionFixture, elapsed_time):
+	def test_times(self, advanced_file_regression: AdvancedFileRegressionFixture, elapsed_time: str):
 		output = football_badge(
 				home_name="STK",
 				away_name="WYC",
@@ -117,13 +119,17 @@ class TestLibrary:
 				away_colour="green",
 				home_score=5,
 				away_score=2,
-				elapsed_time=elapsed_time
+				elapsed_time=elapsed_time,
 				)
 
 		advanced_file_regression.check(output, extension=".svg")
 
 	@elapsed_extra_times
-	def test_extra_time(self, advanced_file_regression: AdvancedFileRegressionFixture, time):
+	def test_extra_time(
+			self,
+			advanced_file_regression: AdvancedFileRegressionFixture,
+			time: Tuple[str, Union[str, int]],
+			):
 		output = football_badge(
 				home_name="STK",
 				away_name="WYC",
@@ -155,24 +161,24 @@ class TestCLI:
 				args=[
 						f"{teams[0]},{score[0]},red",
 						f"{teams[1]},{score[1]},green",
-						]
+						],
 				)
 
 		assert result.exit_code == 0
 		result.check_stdout(advanced_file_regression, extension=".svg")
 
 	@elapsed_times
-	def test_times(self, advanced_file_regression: AdvancedFileRegressionFixture, elapsed_time):
+	def test_times(self, advanced_file_regression: AdvancedFileRegressionFixture, elapsed_time: str):
 		runner = CliRunner()
 		result: Result = runner.invoke(
 				main,
 				catch_exceptions=False,
 				args=[
-						f"STK,5,red",
-						f"WYC,2,green",
+						"STK,5,red",
+						"WYC,2,green",
 						"--elapsed-time",
 						elapsed_time,
-						]
+						],
 				)
 
 		assert result.exit_code == 0
@@ -180,31 +186,37 @@ class TestCLI:
 
 		runner = CliRunner()
 		result = runner.invoke(
-				main, catch_exceptions=False, args=[
-						f"STK,5,red",
-						f"WYC,2,green",
+				main,
+				catch_exceptions=False,
+				args=[
+						"STK,5,red",
+						"WYC,2,green",
 						"-e",
 						elapsed_time,
-						]
+						],
 				)
 
 		assert result.exit_code == 0
 		result.check_stdout(advanced_file_regression, extension=".svg")
 
 	@elapsed_extra_times
-	def test_extra_time(self, advanced_file_regression: AdvancedFileRegressionFixture, time):
+	def test_extra_time(
+			self,
+			advanced_file_regression: AdvancedFileRegressionFixture,
+			time: Tuple[str, Union[str, int]],
+			):
 		runner = CliRunner()
 		result: Result = runner.invoke(
 				main,
 				catch_exceptions=False,
 				args=[
-						f"STK,5,red",
-						f"WYC,2,green",
+						"STK,5,red",
+						"WYC,2,green",
 						"--elapsed-time",
 						str(time[0]),
 						"--extra-time",
 						str(time[1]),
-						]
+						],
 				)
 
 		assert result.exit_code == 0
@@ -214,13 +226,13 @@ class TestCLI:
 				main,
 				catch_exceptions=False,
 				args=[
-						f"STK,5,red",
-						f"WYC,2,green",
+						"STK,5,red",
+						"WYC,2,green",
 						"-e",
 						str(time[0]),
 						"-E",
 						str(time[1]),
-						]
+						],
 				)
 
 		assert result.exit_code == 0
@@ -238,15 +250,15 @@ class TestCLI:
 				main,
 				catch_exceptions=False,
 				args=[
-						f"STK,5,red",
-						f"WYC,2,green",
+						"STK,5,red",
+						"WYC,2,green",
 						"--elapsed-time",
 						"90:00",
 						"--extra-time",
 						'5',
 						"--file",
-						str(filename)
-						]
+						str(filename),
+						],
 				)
 
 		assert result.exit_code == 0
@@ -257,15 +269,15 @@ class TestCLI:
 				main,
 				catch_exceptions=False,
 				args=[
-						f"STK,5,red",
-						f"WYC,2,green",
+						"STK,5,red",
+						"WYC,2,green",
 						"--elapsed-time",
 						"90:00",
 						"--extra-time",
 						'5',
 						"-f",
-						str(filename)
-						]
+						str(filename),
+						],
 				)
 
 		assert result.exit_code == 0
@@ -277,10 +289,10 @@ class TestCLI:
 			advanced_file_regression: AdvancedFileRegressionFixture,
 			):
 
-		def open_new_tab(url):
-			url = PathPlus.from_uri(url)
-			assert url.is_file()
-			advanced_file_regression.check_file(url)
+		def open_new_tab(url: str) -> None:
+			path = PathPlus.from_uri(url)
+			assert path.is_file()
+			advanced_file_regression.check_file(path)
 
 		monkeypatch.setattr(webbrowser, "open_new_tab", open_new_tab)
 
@@ -289,14 +301,14 @@ class TestCLI:
 				main,
 				catch_exceptions=False,
 				args=[
-						f"STK,5,red",
-						f"WYC,2,green",
+						"STK,5,red",
+						"WYC,2,green",
 						"--elapsed-time",
 						"90:00",
 						"--extra-time",
 						'5',
 						"--browser",
-						]
+						],
 				)
 
 		assert result.exit_code == 0
@@ -308,11 +320,11 @@ def test_injection(advanced_file_regression: AdvancedFileRegressionFixture):
 			away_name="WYC</text><script>alert(2)</script><text>",
 			home_colour='red"/><script>alert(3)</script><text',
 			away_colour='green"/><script>alert(4)</script><text',
-			home_score="5</text><script>alert(5)</script><rect>",  # type: ignore
-			away_score="3</text><script>alert(6)</script><rect>",  # type: ignore
+			home_score="5</text><script>alert(5)</script><rect>",  # type: ignore[arg-type]
+			away_score="3</text><script>alert(6)</script><rect>",  # type: ignore[arg-type]
 			elapsed_time="12:34</text><script>alert(7)</script><text>",
 			extra_time="+30</text><script>alert(8)</script><text>",
-			title="My Title</title><script>alert(9)</script><title>"
+			title="My Title</title><script>alert(9)</script><title>",
 			)
 
 	advanced_file_regression.check(output, extension=".svg")

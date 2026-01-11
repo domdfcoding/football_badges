@@ -29,7 +29,7 @@ from typing import Optional, Union
 
 # 3rd party
 from domdf_python_tools.stringlist import StringList
-from lxml import etree, objectify  # type: ignore
+from lxml import etree, objectify  # type: ignore[import-untyped]
 from pybadges import _NAME_TO_COLOR, precalculated_text_measurer, text_measurer
 
 # this package

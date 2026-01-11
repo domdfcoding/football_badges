@@ -14,7 +14,6 @@ enable_conda: False
 standalone_contrib_guide: true
 sphinx_html_theme: furo
 min_coverage: 100
-mypy_version: "0.812"
 
 python_versions:
   - 3.7

@@ -43,7 +43,7 @@ for t in timerange(start, ht):
 			# elapsed_time="18:00",
 			# elapsed_time=f"{str(minutes).rjust(2)}:{str(seconds).zfill(2)}",
 			home_score=9,
-			away_score=0
+			away_score=0,
 			)
 
 	with open("doc-source/football_score_demo.svg", 'w', encoding="UTF-8") as fp:
@@ -77,7 +77,7 @@ for t in timerange(start, ht):
 			away_name="AV",
 			home_colour="red",
 			away_colour="green",
-			elapsed_time=f"{str(minutes).rjust(2)}:{str(seconds).zfill(2)}"
+			elapsed_time=f"{str(minutes).rjust(2)}:{str(seconds).zfill(2)}",
 			)
 	# s is a string that contains the badge data as an svg image.
 	# print(s)  # => <svg height="20" width="191.0" xmlns="ht

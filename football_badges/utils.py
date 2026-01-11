@@ -47,7 +47,7 @@ def open_in_browser(svg: str) -> None:
 
 
 @lru_cache(1)
-def _environment():
+def _environment() -> jinja2.Environment:
 	environment = jinja2.Environment(
 			trim_blocks=True,
 			lstrip_blocks=True,
@@ -56,7 +56,7 @@ def _environment():
 					enabled_extensions=["svg"],
 					default_for_string=True,
 					default=True,
-					)
+					),
 			)
 	environment.globals["len"] = len
 	return environment

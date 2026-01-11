@@ -53,7 +53,7 @@ __all__ = ["main"]
 				'Use the PilMeasurer to measure the length of text. '
 				'(kerning may be more precise for non-Western languages.) '
 				"--deja-vu-sans-path must also be set."
-				)
+				),
 		)
 @click.option(
 		"--deja-vu-sans-path",
@@ -63,7 +63,7 @@ __all__ = ["main"]
 				"The path to the ttf font file containing DejaVu Sans. "
 				"If not present on your system, "
 				"you can download it from https://www.fontsquirrel.com/fonts/dejavu-sans"
-				)
+				),
 		)
 @click.option(
 		"-b",
@@ -84,7 +84,7 @@ __all__ = ["main"]
 		"--title",
 		type=click.STRING,
 		help="The title to associate with the badge.",
-		default="Football Score"
+		default="Football Score",
 		)
 @click.option(
 		"-E",
@@ -113,7 +113,7 @@ def main(
 		browser: bool = False,
 		use_pil_text_measurer: bool = False,
 		deja_vu_sans_path: Optional[str] = None,
-		):
+		) -> None:
 	"""
 	Generate a football score badge.
 
