@@ -100,11 +100,11 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 	:target: https://github.com/domdfcoding/football_badges/commit/master
 	:alt: GitHub last commit
 
-.. |maintained| image:: https://img.shields.io/maintenance/yes/2025
+.. |maintained| image:: https://img.shields.io/maintenance/yes/2026
 	:alt: Maintenance
 
 .. |pypi-downloads| image:: https://img.shields.io/pypi/dm/football_badges
-	:target: https://pypi.org/project/football_badges/
+	:target: https://pypistats.org/packages/football_badges
 	:alt: PyPI - Downloads
 
 .. end shields
