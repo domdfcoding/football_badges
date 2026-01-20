@@ -123,6 +123,7 @@ Installation
 
 .. installation:: football_badges
 	:pypi:
+	:pypi-name: football-badges
 	:github:
 
 .. end installation

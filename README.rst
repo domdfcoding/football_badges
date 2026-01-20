@@ -120,6 +120,6 @@ To install with ``pip``:
 
 .. code-block:: bash
 
-	$ python -m pip install football_badges
+	$ python -m pip install football-badges
 
 .. end installation
