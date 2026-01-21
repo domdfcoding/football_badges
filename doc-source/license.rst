@@ -7,4 +7,4 @@ License
 .. license-info:: Apache-2.0
 
 .. license::
-	:py: football_badges
+	:py: football-badges

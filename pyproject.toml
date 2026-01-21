@@ -3,7 +3,7 @@ requires = [ "whey",]
 build-backend = "whey"
 
 [project]
-name = "football_badges"
+name = "football-badges"
 version = "0.1.0"
 description = "Create a GitHub-style badge showing the score of a football match."
 readme = "README.rst"
@@ -34,6 +34,7 @@ python-implementations = [ "CPython",]
 platforms = [ "Windows", "macOS", "Linux",]
 license-key = "Apache-2.0"
 additional-files = [ "include football_badges/*.svg", "include football_badges/*.json",]
+package = "football_badges"
 
 [tool.sphinx-pyproject]
 github_username = "domdfcoding"
