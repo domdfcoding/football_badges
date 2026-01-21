@@ -71,22 +71,22 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 		:alt: CodeFactor Grade
 
 	.. |pypi-version| pypi-shield::
-		:project: football_badges
+		:project: football-badges
 		:version:
 		:alt: PyPI - Package Version
 
 	.. |supported-versions| pypi-shield::
-		:project: football_badges
+		:project: football-badges
 		:py-versions:
 		:alt: PyPI - Supported Python Versions
 
 	.. |supported-implementations| pypi-shield::
-		:project: football_badges
+		:project: football-badges
 		:implementations:
 		:alt: PyPI - Supported Implementations
 
 	.. |wheel| pypi-shield::
-		:project: football_badges
+		:project: football-badges
 		:wheel:
 		:alt: PyPI - Wheel
 
@@ -110,7 +110,7 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 		:alt: Maintenance
 
 	.. |pypi-downloads| pypi-shield::
-		:project: football_badges
+		:project: football-badges
 		:downloads: month
 		:alt: PyPI - Downloads
 

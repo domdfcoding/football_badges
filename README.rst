@@ -69,20 +69,20 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 	:target: https://www.codefactor.io/repository/github/domdfcoding/football_badges
 	:alt: CodeFactor Grade
 
-.. |pypi-version| image:: https://img.shields.io/pypi/v/football_badges
-	:target: https://pypi.org/project/football_badges/
+.. |pypi-version| image:: https://img.shields.io/pypi/v/football-badges
+	:target: https://pypi.org/project/football-badges/
 	:alt: PyPI - Package Version
 
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/football_badges?logo=python&logoColor=white
-	:target: https://pypi.org/project/football_badges/
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/football-badges?logo=python&logoColor=white
+	:target: https://pypi.org/project/football-badges/
 	:alt: PyPI - Supported Python Versions
 
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/football_badges
-	:target: https://pypi.org/project/football_badges/
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/football-badges
+	:target: https://pypi.org/project/football-badges/
 	:alt: PyPI - Supported Implementations
 
-.. |wheel| image:: https://img.shields.io/pypi/wheel/football_badges
-	:target: https://pypi.org/project/football_badges/
+.. |wheel| image:: https://img.shields.io/pypi/wheel/football-badges
+	:target: https://pypi.org/project/football-badges/
 	:alt: PyPI - Wheel
 
 .. |license| image:: https://img.shields.io/github/license/domdfcoding/football_badges
@@ -103,8 +103,8 @@ The badge is based on `pybadges <https://github.com/google/pybadges>`_.
 .. |maintained| image:: https://img.shields.io/maintenance/yes/2026
 	:alt: Maintenance
 
-.. |pypi-downloads| image:: https://img.shields.io/pypi/dm/football_badges
-	:target: https://pypistats.org/packages/football_badges
+.. |pypi-downloads| image:: https://img.shields.io/pypi/dm/football-badges
+	:target: https://pypistats.org/packages/football-badges
 	:alt: PyPI - Downloads
 
 .. end shields
